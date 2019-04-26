@@ -47,11 +47,11 @@
       </nav>
       
 
-      <div class="container-fluid side1" style="background:pink">
+      <div class="container-fluid side1">
           <div id="headerGallery">
               <h1 class="text-center">Gallery</h1> <hr>
               <div class"" id="gallery_categories">
-              <div id="myBtnContainer" class=" row justify-content-center">
+              <div id="myBtnContainer" class=" row ">
                 <button class="btn_filter btn active" onclick="filterSelection('all')"> Show all</button>
                 <button class="btn_filter btn" onclick="filterSelection('effects')"> Effects</button>
                 <button class="btn_filter btn" onclick="filterSelection('people')"> People</button>
@@ -68,8 +68,8 @@
 
           <div class="contentGallery shadow bg-white">             
             <div class="row">
-            <div class="col-12" id="all_panel">
-              <div class="row justify-content-center">
+            <div class="col-12" >
+              <div class="row justify-content-center" id="all_panel">
 
 
 
@@ -79,16 +79,19 @@
                   $query = $conn->query("SELECT * from gallery");
                   while ($a = $query->fetch_assoc()) {                
                     echo '
-                      <div class="column_images '.$a['category'].' card shadow col-sm-6 col-md-4 col-lg-3" style="">
+                      <div class="column_images '.$a['category'].' card shadow col-sm-6 col-md-4 col-lg-3">
                       <div class="portfolio-item content">
-                        <div class="hover-bg"  onclick="openModal();currentSlide('.(int) ($a['id']).')">   
+                        <div class="hover-bg"  
+                        onclick="openImg
+                        (`'.($a['posted_at']).'`,`'.($a['posted_by']).'`, `'.$a['link'].'`,`'.$a['img_name'].'`,`'.$a['category'].'`)
+                        ">   
                           <div class="hover-text" >
                           <h4>'.ucwords($a['img_name'] ).'</h4>
                           <small>'.$a['category'].'</small>
                           <div class="clearfix"></div>
                         </div>
                         <!-- hover-text end -->
-                        <img class="card-img-top responsive"  src="../../private/'.$a['link'].'" width="300px" height="180px" alt="NICKS Design" >
+                        <img class="card-img-top img-fluidn img-see"  src="../../private/'.$a['link'].'"  alt="NICKS Design" >
                       </div>                     
                       <!-- hover-bg ends -->
                       </div>
@@ -101,21 +104,6 @@
                 }
               ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
               </div>
               <!-- all panel end -->
             </div>
@@ -152,39 +140,51 @@
       </div> 
       <!-- end of container -->
 
-<div class="side2 ">
+    <div class="side2">
 
       <!-- button to close image details -->
-      <button class="btn btn-info btn-small mb-4" id="btn-view" style="float: right"> close</button>
+      <button class="btn btn-info btn-small mb-4 mt-4" id="btn-view" style="float: right; color:black; margin-right:30px"> close</button>
 
       <!-- image title -->
       <div class="mt-4" id="img_title">
-          <h3 class="text-center ">Image Title</h3> <hr>
+          <h3 class="text-center title" >Image Title</h3> <hr>
       </div>
 
       <!-- image -->
       <div class="contain_img d-flex justify-content-center mb-4">
-          <div class="big_box_img shadow text-center">
-              <img src="blood_splash_2-wallpaper-1920x1080.jpg" height="200px" width="300px" class="w3-ifmage" alt="no image">
-          </div>
-          <button class="w3-button w3-display-left w3-display-middle w3-black" onclick="plusDivs(-1)">&#10094;</button>
-          <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+         <img id="inImg" src="../img/army_gas_mask-wallpaper-1366x768.jpg" class="img-fluid" alt="Images">
       </div>
 
-      <!-- description of image -->
-      <div class="m-4" id="img_description">
-        <div><b>Description</b> </div> 
-        <div class="m-2" id="more_details">
-              some dummy text here
-              some dummy text here
-              some dummy text here
+   
+   
+   <!-- user feedback -->
+   <div class="user_feeds_contain">
+     <div class="user_feeds jumbotron">
+       <!-- description of image -->
+          <div class="m-2 mb-5">
+            <b>Description</b>
+            <div class="m-2" id="more_details">
+                  <span class="thedate"> Date posted</span> <br>
+                  <span class="posted_by">Posted By <b><i>Admin</i></b> </span> <br>
+                  <span class="imgname"> Image name </span> <br>
+            </div>
+            </div> 
+            <form class="form-group m-2">
+              <label for="user_email"><b>Subscribe to get images </b></label>
+              <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Type email">
+              <button class="btn btn-success mt-3 mb-3" type="submit">Submit</button>
+            </form>
+            <div class="m-2">
+              <span class="w3-display-left social_btn">Like</span> 
+              <span class="w3-display-right social_btn">comment</span>
+            </div>
         </div>
+      <!-- footer -->
+      <div class="jumbotron text-center bg-footer" id="footer" style="margin-top: 10px; margin-bottom: 0; border-radius: 0; color: white; z-index: 544!important">
+          &copy;Copyright
+           <a href="" style="color: gold">Wainaina Nicholas</a> <br>
+           social media links here
       </div>
-
-      <!-- user feedback -->
-      <div class="user_feeds ">
-          <span class="w3-display-left social_btn">Like</span> 
-          <span class="w3-display-right social_btn">comment</span>
       </div>
 
       <!-- share on social media -->

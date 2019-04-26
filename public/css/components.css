@@ -1,0 +1,15 @@
+/* error msg conn */
+.no-conn{
+    display: flex;
+}
+.no-conndiv1{
+    flex: 2
+}
+.no-conndiv2{
+    flex: 1
+}
+.no-conndiv2 img {
+    padding: .05rem;
+    max-width: 100%;
+    height: 200px;
+}

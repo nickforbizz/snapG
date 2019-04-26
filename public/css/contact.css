@@ -29,3 +29,17 @@
   #usermessage, #useremail, #username{
     border-left: 2px solid #12d5f2;
   }
+.bg-color{
+  background-color: #17a2b8;
+}
+.bg-color>div>ul>li>a{
+  color: white !important;
+}
+#footer-contact{
+  margin-top: 10px; 
+  margin-bottom: 0; 
+  border-radius: 0;
+}
+[v-cloak]{
+  display: none;
+}

@@ -26,3 +26,8 @@
 .bg-color{
     background-color: #0f7889;
 }
+#footer{
+    margin-top: 10px; 
+    margin-bottom: 0; 
+    border-radius: 0;
+}

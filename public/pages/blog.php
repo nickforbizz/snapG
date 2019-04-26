@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/animate.css">
     <link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/blog.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/components.css" />
 
 </head>
 <body>
@@ -61,26 +62,30 @@
                 <!-- data will be dumped here by js -->           
                                  
                   <div id="noContent" class="d-flvex justify-content-center">
-                    <div>
-                      <img src="../img/Artboard 1.png" width="300px" alt="LOGO" >
-                    </div>            
+                    <div class="jumbotron no-conn">
+                        <div class="no-conndiv1">
+                            <h3>Not available.</h3>
+                            <p>We are sorry for the inconviniences caused.</p>
+                        </div>
+                        <div class="no-conndiv2">
+                        <img src="../img/anglyEgg.gif" alt="No connection due to errors" class="">
+                        </div>
+                    </div>           
                   </div> 
 
             </div>
             <div class="row">
               <div class="col-12 " id="pagination_id">
                 <ul class="pagination justify-content-center" id="pagination">
-                  <li class="page-item"><a class="page-link" onclick="fetch(currentIndex-9)">Previous</a></li>
+                  <li class="page-item pi-prev"><a class="page-link" onclick="fetchf(currentIndex-9)">Previous</a></li>
                   <b id="pagination_links" class="d-flex">
-
-                  <!-- <li class="page-item active"><a class="page-link" onclick="fetch(0)">1</a></li>
-                  <li class="page-item"><a class="page-link" onclick="fetch(1)">2</a></li>
-                  <li class="page-item"><a class="page-link" onclick="fetch(2)">3</a></li>
-                  <li class="page-item"><a class="page-link" onclick="fetch(27)">4</a></li>
-                  <li class="page-item"><a class="page-link" onclick="fetch(36)">5</a></li> -->
-
+                    <li class="page-item active"><a class="page-link" onclick="fetch(0)">1</a></li>
+                    <li class="page-item"><a class="page-link" onclick="fetch(1)">2</a></li>
+                    <li class="page-item"><a class="page-link" onclick="fetch(2)">3</a></li>
+                    <li class="page-item"><a class="page-link" onclick="fetch(27)">4</a></li>
+                    <li class="page-item"><a class="page-link" onclick="fetch(36)">5</a></li>
                   </b>
-                  <li class="page-item"><a class="page-link" onclick="fetch(currentIndex+9)">Next</a></li>
+                  <li class="page-item pi-next"><a class="page-link" onclick="fetch('next')">Next</a></li>
                 </ul>
               </div>
             </div>
@@ -98,7 +103,7 @@
 
 
       <!-- footer -->
-      <div class="jumbotron text-center bg-primary" id="footer" style="margin-top: 10px; margin-bottom: 0; border-radius: 0;">
+      <div class="jumbotron text-center bg-color" id="footer">
           &copy;Copyright
            <a href="" style="color: gold">Wainaina Nicholas</a> <br>
            social media links here

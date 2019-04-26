@@ -164,12 +164,12 @@
                     </div>
 					<div class="col-12" style="">
 						<form  class="form-group" id="form_search_blog">
-						<div class="input-group pull-right" style="width:400px;margin-right:20px">
+						<div class="input-group pull-right" style="margin: 0 20px 0 20px">
 							<span class="input-group-addon">Search</span>
 							<input id="search_blog" type="text" class="form-control" name="search_blog" placeholder="search the title of the blog ...">
 						</div>
-						</form> <br> <br>
-						<div class="m-5" style="height:200px">
+						</form> 
+						<div class="m-5" style="hehight:200px">
 							<div id="search_articles" class="panel-body articles-container m-5" style="display:none"></div>
 						</div>
 					</div>
@@ -178,12 +178,8 @@
 	
 					</div> <!--End .panel-body articles-container -->
 					</div>
-				</div> <!--End .panel panel-default articles -->
+				</div> <!--nEnd .panel panel-default articles -->
             </div> <!--End .col-12-->
-
-
-
-
 
 
 

@@ -22,9 +22,7 @@
 body{
 	background: #c5b6dc82
 }
-#all_panel{
-	background: #ced4da;
-}
+
 
 /* Gallery Section 
 ==============================*/
@@ -88,9 +86,7 @@ ol.type li a:hover {
 	-moz-transition-property: -moz-transform, opacity;
 	transition-property: transform, opacity;
 }
-.portfolio-item {
-	margin-bottom: 30px;
-}
+
 .portfolio-item .hover-bg {
 	height: 170px;
 	overflow: hidden;
@@ -135,8 +131,9 @@ ol.type li a:hover {
 }
 .hover-bg:hover .hover-text {
 	opacity: 1;
+	cursor: pointer;
 }
-#works-section i.fa {
+#works-sectihon i.fa {
 	height: 30px;
 	width: 30px;
 	border: 1px solid #F5AB35;
@@ -155,13 +152,7 @@ ol.type li a:hover {
 }
 
 /* Style the buttons */
-.btn {
-	border: none;
-	outline: none;
-	padding: 12px 16px;
-	background-color: white;
-	cursor: pointer;
-  }
+
   
   .btn:hover {
 	background-color: #ddd;
@@ -181,30 +172,32 @@ ol.type li a:hover {
     margin: auto;
 }
 
-h1 {
-    font-size: 50px;
-    word-break: break-all;
-}
-
-.row {
-    margin: 0 -16px 0 -16px;
-}
-
 /* Add padding BETWEEN each column */
-.row,
-.row > .column_images {
-    padding: 0 8px 0 8px;
-}
 
+#all_panel{
+	background: #bdb5b5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
 /* Create three equal columns that floats next to each other */
 .column_images {
-    float: left;
-    width: 33.33%;
-		display: none; /* Hide all elements by default */
-		margin: 0 15px 15px 0 !important;
-    padding: 0 1px 0 1px;
+	display: none;
+	width: 12em;
+	height: 11.5em !important;
+	margin: 10px;
+	padding: 0 !important;
+	
 }
-
+/* menu for images */
+#myBtnContainer{
+	display: flex;
+	justify-content: center;
+}
+.btn_filter{
+	margin: 2px;
+}
 /* Clear floats after rows */ 
 .row:after {
     content: "";
@@ -224,37 +217,27 @@ h1 {
 }
 
 
-/* ************ lightBox ************************** */
-/* The Modal (background) */
-.modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: black;
-  }
-  .navbar{
-		z-index: 544 !important;
+/* ************ images ************************** */
+
+.navbar{
+	z-index: 544 !important;
 	}
+
 	/* side2 of image style */
-	.side2{
-    /* display: none; */
+.side2{
+    display: none;
     position: absolute;
-    width: 50%;
+    width: 100%;
     right: 0px;
     padding: 10px;
     z-index: 344;
-    top: 0px;
-    height: 100%;
-    background: #9f5ae4;
+	top: 0px;
+	padding: 0;
+    height:fit-content;
+    background: #bdb5b5;
 }
 .side1{
-    background: rgb(36, 22, 22);
+    background: #bdb5b5;
     min-height: 100%;
     width: 100%;
 }
@@ -281,13 +264,45 @@ h1 {
     position: relative;
 }
 #more_details{
-    border-left: 5px solid #d4b7b7;
+    border-left: 5px solid #28a745;;
     padding: 0 0 4px 7px;
 }
-.user_feeds{
-    position: relative;
-    margin-top: 40px;
+#img_description{
+	text-align: center;
 }
+.user_feeds_contain{
+	text-align: -webkit-center;
+}
+.user_feeds{
+	position: relative;
+	max-width: 50%;
+	margin-top: 40px;
+	text-align: left
+}
+@media screen and (max-width: 480px){
+	.user_feeds{
+		max-width: 99%;
+	}
+} 
+#inImg{
+	max-height: 43vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .social_btn{
     background: #032305a6;
     padding: 5px 10px 5px 10px;

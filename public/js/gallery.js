@@ -1,8 +1,3 @@
-
-//  select a tab and perform function to its body
-// var all_panel_nav = document.querySelector("#all_panel_nav");
-// all_panel_nav.addEventListener("click", allSection);
-
 function allSection() {
     // alert("all clicked");
     $("#all_panel").addClass("actively_selected");
@@ -20,8 +15,14 @@ function allSection() {
         }
     })
 
-}
+} 
 
+// capitalize
+function charOneToUpper(s){
+  let y = s.charAt(0).toUpperCase();
+  let z = s.replace(s.charAt(0), y)
+  return z;
+}
 
 //  select a tab and perform function to its body
 // var solo_images_nav = document.querySelector("#solo_images_nav");
@@ -63,15 +64,19 @@ function videosSection() {
 // filter images
 filterSelection("all")
 function filterSelection(c) {
-  var x, i;
-  console.log("some dumm");
+  var x, i; 
+  console.log(c);
   
   x = document.getElementsByClassName("column_images");
-  if (c == "all") c = "";
+  if (c == "all") {c = ""};
   for (i = 0; i < x.length; i++) {
     w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    
+    if (x[i].className.indexOf(c) > -1){
+      w3AddClass(x[i], "show");
+    } 
   }
+   
 }
 
 function w3AddClass(element, name) {
@@ -111,3 +116,24 @@ for (var i = 0; i < btns.length; i++) {
 navHeight = $(".navbar").height() + 7 + "px";
 
 $(".side2").css({"margin-top":navHeight})
+
+
+// open and close  image detail panel
+function openImg(postdate, owner, img_link, img_name, Category) {
+  // $(".contentGallery").hide();
+  $(".side2").css({"position":"absolute", "z-index":"99","max-height":"98vh"}).slideDown();
+
+  // replace html content
+  $(".contain_img").html('<img id="inImg" src="../../private/'+img_link+'" alt="Images" class="img-fluid">');
+  $(".title").html( charOneToUpper(Category)+' Category');
+  $("#more_details").html(`
+      <span class="thedate"> Date posted: <b><i>`+postdate.toLocaleString()+`</i></b></span> <br>
+      <span class="posted_by">Posted By:  <b><i>`+charOneToUpper(owner)+`</i></b> </span><br>
+      <span class="imgname"> Image Name: <b><i>`+charOneToUpper(img_name)+`</i></b> </span><br>
+  `);
+}
+
+$("#btn-view").click(function () {
+  $(".contentGallery").show();
+  $(".side2").slideUp();
+})

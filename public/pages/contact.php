@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-md bg-color navbar-dark" >
         <a class="navbar-brand" href="../index.html">
         <!-- <img src="../img/Artboard 1.png" alt="LOGO"  width="100px;"> -->
         NICKS
@@ -46,7 +46,7 @@
       </nav>
       <br>
 
-      <div class="container">
+      <div class="container" id="vuecontact">
           <div id="headerContact">
               <h1 class="text-center">Contact</h1>  <hr>          
           </div>
@@ -72,7 +72,7 @@
                   <div class="text-center mt-2"><strong>Adress: </strong>  <span class="justify-content-end">19 Kagwe</span> </div>
               </div>
               <div class="col-6 offset-3 mt-4 mb-4">
-                <form enctype="multipart/form-data" method="post" id="contactForm">
+                <form v-show="!submitted" enctype="multipart/form-data" method="post" id="contactForm">
                   <div class="form-group form-row">
 
                     <label class="col-form-label text-left" for="usermessage"><b>Message</b> </label>
@@ -97,6 +97,10 @@
 
                   <button type="submit" class="btn btn-success" name="send_user_details">Send</button>
                 </form>
+                <div v-show="submitted" v-cloak class="mt-5 mb-5 text-center thanks">
+                  <h2>Thanks for submitting</h2>
+                  <button class="btn btn-success" @click.prevent="releaseThankyouNote">Submit another message</button>
+                </div>
               </div>
           </div> <!-- End Of About -->
         </div> <!-- End Of col-12(contact) -->
@@ -108,7 +112,7 @@
 
 
       <!-- footer -->
-      <div class="jumbotron text-center bg-primary" id="footer" style="margin-top: 10px; margin-bottom: 0; border-radius: 0;">
+      <div class="jumbotron text-center bg-color " id="footer-contact">
           &copy;Copyright
            <a href="" style="color: gold">Wainaina Nicholas</a> <br>
            social media links here
@@ -116,6 +120,7 @@
 
       <!-- js scripts -->
     <script type="text/javascript" src="../js/jquery.1.11.1.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
     <script type="text/javascript" src="../bootstrap4/js/bootstrap.min.js"></script>
     <script src="../js/contact.js"></script>
 </body>

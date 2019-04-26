@@ -70,7 +70,7 @@
       global $category_blogs;
 
       // sql query
-      $query = $conn->query("SELECT * from  blogs where blogs.edited = 0 and blogs.blog_id = $var;");
+      $query = $conn->query("SELECT * from  blogs where blogs.status = 1 and blogs.blog_id = $var;");
       
       // fetch data
       while ($a = $query->fetch_assoc()) {
@@ -168,7 +168,7 @@
             <div class="row justify-content-center">
             <?php
             
-              $query_related = $conn->query("SELECT * from  blogs where blogs.edited = 0 and blogs.category = '$category_blogs' and not blogs.blog_id = $blog_id limit 3;");
+              $query_related = $conn->query("SELECT * from  blogs where blogs.status = 1 and blogs.category = '$category_blogs' and not blogs.blog_id = $blog_id limit 3;");
       
               while ($a = $query_related->fetch_assoc()) {
 

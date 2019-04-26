@@ -64,7 +64,18 @@ body, html {height: 100%}
 }
 
 #close_btn{
-    position:absolute;right:10px;cursor:pointer;
+    position:absolute;
+    right:50px;
+    cursor:pointer;
+    background-color: aliceblue;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    text-align: -webkit-center;
+}
+#close_btn>span{
+    padding:10px;
+    font-size:40px;
 }
 .animateDiv{
     -webkit-animation: moveLeft 3s cubic-bezier(0.075, 0.82, 0.165, 1);

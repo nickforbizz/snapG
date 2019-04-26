@@ -14,7 +14,14 @@
 		border-top-left-radius: 30px; 
 		height: 200px
 	}
-	
+	[v-cloak]{
+            display: none;
+    }
+	.thanks{
+	background-color: aliceblue;
+    padding: 30px;
+    margin: 80px 0 80px 0!important;
+	}
 	</style>
 	
 	<!--Custom Font-->
@@ -98,52 +105,56 @@
 		</div><!--/.row-->
 				
 		
-		<div class="row">
+		<div class="row" id="app">
 			<div class="col-lg-12">				
 				<div class="panel panel-default">
-					<div class="panel-heading">Forms</div>
+					<!-- <div class="panel-heading">Forms</div> -->
 					<div class="panel-body">
 						<div class="col-md-12">
 
-												<h2 class="text-center">Post Image</h2> <hr>
-							
-												<div class="rowk">
-												<form method="post" id="form_post_img">
-													<div class="form-group">
-														<label for="email">Name:</label>
-														<input 	 class="form-control" id="email" placeholder="Enter name" name="img_name" required>
-														<!-- <input class="form-control" placeholder="Success"> -->
-													</div>
-													<div class="form-group">
-														<label for="customRange">Rate it</label>
-														<input type="range" class="custom-range" id="customRange" name="points1">
-													</div>
-													<div class="form-group">
-													<label for="sel1">Select Image Category:</label>
-														<select name="img_categories" class="form-control custom-select-sm" id="sel1" required>
-															<option value="uncategorized" selected>Default</option>
-															<option value="effects">Effects</option>
-															<option value="people">People</option>
-															<option value="3d">3d</option>
-															<option value="mockups">Mock-ups</option>
-															<option value="manupilation">Manupilation</option>
-														</select>
-													</div>
-													<div class="mb-1">Image</div> 
-													<div class="custom-file mb-3">
-														<!-- <p>Upload Image</p> -->
-														<input type="file" class="custom-file-input" name="img_upload" id="customFile" onchange="preview_file(this)" required>
-														<label class="custom-file-label" for="customFile"></label>
-														<img id="output_img" alt="preview Image here">
-													</div>
-													<!-- <div class="form-group form-check">
-														<label class="form-check-label">
-														<input class="form-check-input" type="checkbox" name="remember"> Remember me
-														</label>
-													</div> -->
-													<input type="submit" name="upload_img" class="btn btn-primary" id="upload_img_id" value="Submit" />
-												</form>
-												</div>
+						<h2 v-show="hide" class="text-center">Post Image</h2> <hr>
+
+						<div class="rowk">
+						<form v-show="!submitted" method="post" id="form_post_img">
+							<div class="form-group">
+								<label for="email">Name:</label>
+								<input 	 class="form-control" id="email" placeholder="Enter name" name="img_name" required>
+								<!-- <input class="form-control" placeholder="Success"> -->
+							</div>
+							<div class="form-group">
+								<label for="customRange">Rating	</label>
+								<input type="range" class="custom-range" id="customRange" name="points1">
+							</div>
+							<div class="form-group">
+							<label for="sel1">Select Image Category:</label>
+								<select name="img_categories" class="form-control custom-select-sm" id="sel1" required>
+									<option value="uncategorized" selected>Default</option>
+									<option value="effects">Effects</option>
+									<option value="people">People</option>
+									<option value="3d">3d</option>
+									<option value="mockups">Mock-ups</option>
+									<option value="manupilation">Manupilation</option>
+								</select>
+							</div>
+							<div class="mb-1">Image</div> 
+							<div class="custom-file mb-3">
+								<!-- <p>Upload Image</p> -->
+								<input type="file" class="custom-file-input" name="img_upload" id="customFile" onchange="preview_file(this)" required>
+								<label class="custom-file-label" for="customFile"></label>
+								<img id="output_img" alt="preview Image here">
+							</div>
+							<!-- <div class="form-group form-check">
+								<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" name="remember"> Remember me
+								</label>
+							</div> -->
+							<input type="submit"  name="upload_img" class="btn btn-primary" id="upload_img_id" value="Submit" />
+						</form>
+						<div v-show="submitted" v-cloak class="mt-5 text-center thanks">
+							<h2>Thanks for submitting</h2>
+							<button class="btn btn-success" @click.prevent="releaseThankyouNote">Post another image</button>
+						</div>
+						</div>
 						<!-- post image ends -->
 						</div>
 					</div>
@@ -165,6 +176,7 @@
 	<script src="js/custom.js"></script>
 	<!-- <script type="text/javascript" src="../../public/js/jquery.1.11.1.js"></script> -->
     <script type="text/javascript" src="../../public/bootstrap4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lumino/newjs/vue.js"></script>
 	<script>
 
 
@@ -188,6 +200,29 @@
 			// paste user at the session
 			 $("#Username").html(user);
 
+			
+			var preview_file = function (e) {
+				var output_img = document.getElementById("output_img");
+				output_img.src=URL.createObjectURL(e.files[0]);
+			}
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					submitted: false,
+					hide: true,
+				},
+				methods: {
+					thankyouNote: function(){
+						this.submitted = true;
+						this.hide = false;
+					},						
+					releaseThankyouNote: function(){
+						this.submitted  = false;
+						this.hide  = true;
+					}
+				}
+			})
+			
             $("#form_post_img").submit(function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -199,17 +234,12 @@
                     success: function(data){
                         $("#form_post_img")[0].reset();
                         // data = JSON.parse(data);
-                        console.log(data);
+						vm.thankyouNote();
                     },error: function(data){console.log(data);}
     
                 })
                 
 			})
-			
-			var preview_file = function (e) {
-				var output_img = document.getElementById("output_img");
-				output_img.src=URL.createObjectURL(e.files[0]);
-			}
         </script>
 </body>
 </html>

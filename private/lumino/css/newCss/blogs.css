@@ -24,11 +24,11 @@
 #edit_link:hover{cursor:pointer}
 
 #search_articles{
-    /* border: 1px solid coral;
-    margin-left: 40%;
+    display: block;
     position: absolute;
-    z-index: 99;
-    background-color: #8bbafd;
-    border-left-style: groove;
-    width: 57%; */
+    z-index: 322;
+    background: aliceblue;
+    margin-top:40px;
+    height: 150px;
+    overflow-y: scroll;
 }

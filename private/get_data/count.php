@@ -5,7 +5,7 @@ require_once('../conn.php');
 
 
 
-$query = $conn->query("SELECT count(blog_id) as num from blogs where edited = 0");
+$query = $conn->query("SELECT count(blog_id) as num from blogs where blogs.`status` = 1");
 
 echo $conn->error;
 

@@ -207,7 +207,20 @@
     margin-top:25px;padding-left: 25px;
   }
   .closeBounce{
-    animation-name: bounce;
+    z-index: 1299;
+    position:absolute;
+    right:10px;
+    cursor:pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    width: 100px;
+    height: 100px;
+    text-align: -webkit-center;
+  }
+  .closeBounce>span{
+    /* padding:10px; */
+    font-size:40px;
   }
   .allcategoriesSlided {
     position: absolute;

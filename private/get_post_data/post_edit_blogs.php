@@ -89,8 +89,8 @@ if (isset($_POST['blog_title'])) {
         
                      }else {
                          $query_edited = $conn->query("UPDATE blogs
-                         SET blogs.edited = 1, blogs.owner_id = '$owner_id'
-                         WHERE blogs.blog_id = '$blog_id' ");
+                         SET blogs.`status` = 0, blogs.owner_id = '$owner_id'
+                          WHERE blogs.blog_id = '$blog_id' ");
 
                         $query = $conn->query("INSERT INTO `blogs` (img_link, img_name, img_type, title, blog_description, content, category, owner_id)
                         VALUES ('$uploadnamex2', '$name',  '$filetype', '$blog_title', '$blog_description', '$the_blog', '$img_categories', '$owner_id')");

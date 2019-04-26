@@ -19,14 +19,10 @@
   <div class="allcategoriesSlided">
     <div class="container-fluid" id="container_allcategoriesSlided">
       <div class="row">
-
-        <!-- <button type="button" class="close">
-          <span>&times;</span>
-        </button> -->
-
-        <div class="closeBounce bounce" style="position:absolute;right:10px;cursor:pointer;">
-          <span style="padding:10px;font-size:40px;">&times;</span> <br>
-          <strong>close</strong>
+   
+        <div class="closeBounce" id="closebtn" onclick="animateCloseCategoryPage()">
+            <span >&times;</span> <br>
+            <strong>close</strong>
         </div>
 
         <div class="col-md-5 col-sm-12 pt-4">
@@ -201,10 +197,10 @@
     <div class="collapse navbar-collapse" id="myNavToggler">
       <div class="navbar-nav ml-auto">
         <a href="./index.html" class="active nav-item nav-link">Home </a>
-        <a href="./pages/about.html" class="nav-item nav-link">   About </a>
-        <a href="./pages/catalogue.html" class="nav-item nav-link">Catalogue  </a>
         <a href="./pages/gallery.php" class="nav-item nav-link">Gallery  </a>
         <a href="./pages/blog.php" class="nav-item nav-link">Blog   </a>
+        <a href="./pages/catalogue.html" class="nav-item nav-link">Catalogue  </a>
+        <a href="./pages/about.html" class="nav-item nav-link">   About </a>
         <a href="./pages/contact.php" class="nav-item nav-link">Contact</a>
         <div class="nav-item nav-link">
           <form method="get" action="/search" id="search">

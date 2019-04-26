@@ -1,5 +1,3 @@
-
-
  $(document).ready(function() {
 
     // indicators colors
@@ -12,22 +10,21 @@
 
   //all CATEGORIES click to animate div
   var categoryClick = document.querySelector("#allcategories");
-  var categoryClose = document.querySelector(".allcategoriesSlided");
   var searchExpand = document.querySelector("#searchInput");
   categoryClick.addEventListener("click", animateOpenCategoryPage);
   categoryClick.addEventListener("mouseover", rotateCategoryBolder);
-  categoryClose.addEventListener("click", animateCloseCategoryPage);
   searchExpand.addEventListener("click", animateSearch);
   // animateCategoryPage function
-  console.log();
-  function animateOpenCategoryPage() {
-    $(".allcategoriesSlided").addClass("animateDiv");
-    $(".allcategoriesSlided").show();
-  }
 
-  function animateCloseCategoryPage() {
-    $(".allcategoriesSlided").hide();
+  function animateOpenCategoryPage() {
+    // $(".allcategoriesSlided").addClass("animateDiv");
+    $(".allcategoriesSlided").slideDown();
   }
+  $(".closeBounce").click(function() {
+    console.log("hide me");
+    $(".allcategoriesSlided").slideUp();
+  })
+ 
 
   function animateSearch() {
     let navWidth = ($("#myNavToggler").innerWidth() + "px");
